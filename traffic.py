@@ -84,31 +84,11 @@ def get_model():
     """
 
     # Define a Sequential model
-    # model = tf.keras.models.Sequential([
-
-    #     # Convolutional layer with 32 filters 3x3 kernel and relu activation.
-    #     tf.keras.layers.Conv2D(
-    #         32, (3, 3), activation="relu", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)
-    #     ),
-
-    #     # Max-pooling layer, using 2x2 pool size
-    #     tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
-
-    #     # Add a hidden layer with dropout
-    #     tf.keras.layers.Dense(128, activation="relu"),
-    #     tf.keras.layers.Dropout(0.5),
-
-    #     # Add an output layer with output units for all 10 digits
-    #     tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")
-
-    # ])
-
-    # Define a Sequential model
     model = tf.keras.models.Sequential()
 
     # Add a Convolutional layer with 32 filters 3x3 kernel and relu activation.
     model.add(tf.keras.layers.Conv2D(
-        32, (3, 3), activation="relu", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)
+        32, (3, 3), activation="sigmoid", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)
     ))
 
     # Add a Max-pooling layer, using 2x2 pool size
@@ -118,10 +98,10 @@ def get_model():
     model.add(tf.keras.layers.Flatten())
 
     # Add a Add a hidden layer with dropout
-    model.add(tf.keras.layers.Dense(128, activation="relu"))
+    model.add(tf.keras.layers.Dense(128, activation="sigmoid"))
     model.add(tf.keras.layers.Dropout(DROPOUT))
 
-    # Add an output layer with output units for all 10 digits
+    # Add an output layer with output units for all 43 traffic signs
     model.add(tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax"))
     model.summary()
 
