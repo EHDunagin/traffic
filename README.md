@@ -15,3 +15,20 @@ Changed activation function in Conv2D and Hidden layer from rectified linear uni
 Added Pooling and convolutional layers after first set. Reduced accuracy to 98.14%.
 Removed previous adjustment and added another convolution before first pooling. Resulted in 98.93% accuracy.
 Reverted to original format as it seems relu preferred to sigmoid for efficiency.
+Added additional convolution and pooling layers after first set. Resulted in 89.91% accuracy.
+Increased number of filters in convolutional layer to 50. Resulted in 93.63% accuracy.
+Removed middle pooling (summary below). Resulted in 97.73% accuracy.
+Layer (type)                 Output Shape              Param #
+=================================================================
+conv2d (Conv2D)              (None, 28, 28, 50)        1400
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 26, 26, 50)        22550
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 13, 13, 50)        0
+_________________________________________________________________
+flatten (Flatten)            (None, 8450)              0
+_________________________________________________________________
+dense (Dense)                (None, 128)               1081728
+_________________________________________________________________
+dropout (Dropout)            (None, 128)               0
+_________________________________________________________________
