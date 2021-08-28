@@ -11,4 +11,6 @@ Referenced the following to understand how to load images as numpy array and res
 -https://www.geeksforgeeks.org/image-resizing-using-opencv-python/
 ## Implementation of Neural Network
 Start with a Sequential model similar to that shown in lecture. Resulted in 5.54% accuracy.
-Changed activation function in Conv2D and Hidden layer from rectified linear unit (relu) to sigmoid.
+Changed activation function in Conv2D and Hidden layer from rectified linear unit (relu) to sigmoid. Resulted in 98.43% accuracy.
+Added Pooling and convolutional layers after first set. Reduced accuracy to 98.14%.
+Removed previous adjustment and added another convolution before first pooling
