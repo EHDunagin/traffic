@@ -1,6 +1,6 @@
 # Traffic Neural Network Project
 ## Implementation of load_data
-Referenced python documentation to understand how to traverse the directories and get the directory nae representing the label
+Referenced python documentation to understand how to traverse the directories and get the directory name representing the label
 -os.walk https://docs.python.org/3/library/os.html
 -os.path.join https://docs.python.org/3/library/os.path.html
 -os.path.basename https://stackoverflow.com/questions/3925096/how-to-get-only-the-last-part-of-a-path-in-python
@@ -18,8 +18,9 @@ Reverted to original format as it seems relu preferred to sigmoid for efficiency
 Added additional convolution and pooling layers after first set. Resulted in 89.91% accuracy.
 Increased number of filters in convolutional layer to 50. Resulted in 93.63% accuracy.
 Removed middle pooling (summary below). Resulted in 97.73% accuracy.
+
 Layer (type)                 Output Shape              Param #
-=================================================================
+_________________________________________________________________
 conv2d (Conv2D)              (None, 28, 28, 50)        1400
 _________________________________________________________________
 conv2d_1 (Conv2D)            (None, 26, 26, 50)        22550
@@ -32,3 +33,8 @@ dense (Dense)                (None, 128)               1081728
 _________________________________________________________________
 dropout (Dropout)            (None, 128)               0
 _________________________________________________________________
+
+Added another hidden layer. Resulted in 78.22% accuracy.
+Reduced number of nodes in second hidden layer to 86. Resulted in 95.41% accuracy.
+Reduced number of nodes in first hidden layer to 86. Resulted in 63.65% accuracy.
+Removed second hidden layer and returned first to 128 units. Resulted in 96.99% accuracy.
